@@ -68,3 +68,21 @@
 .card__like-button_active {
   background-image: url("../images/like-active.svg");
 }
+.popup__input_type_error {
+  border-bottom: 1px solid red;
+}
+
+.popup__error {
+  color: red;
+  font-size: 12px;
+  opacity: 0;
+}
+
+.popup__error_visible {
+  opacity: 1;
+}
+
+.popup__button_disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

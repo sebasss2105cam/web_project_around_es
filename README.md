@@ -9,3 +9,5 @@ cierre de lcuadro emergente, el ingreso de los datos en el formulario de edició
 y el guardado de los datos; para ello, se emplearon metdologías para selección de elementos
 por sus clases e identificadores, así como funciones para llevar a cabo las acciones
 respectivas en la interacción con la página web.
+
+Por último se trabajó con funciones y elementos para interactuar con las ventanas emergentes. De igual forma, se organizaron los archivos en torno a JavaScript modular.
