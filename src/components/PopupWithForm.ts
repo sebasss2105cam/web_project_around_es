@@ -1,4 +1,4 @@
-import { Popup } from "../../src/components/Popup";
+import { Popup } from "./Popup";
 
 export interface FormValues {
   [key: string]: string;
