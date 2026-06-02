@@ -11,3 +11,6 @@ por sus clases e identificadores, así como funciones para llevar a cabo las acc
 respectivas en la interacción con la página web.
 
 Por último se trabajó con funciones y elementos para interactuar con las ventanas emergentes. De igual forma, se organizaron los archivos en torno a JavaScript modular.
+
+En el proyecto se incluyó el uso de Typescript, con los métodos y funciones adecuados para
+la organización de los archivos, sus rutas y cumplir con las funcionalidades completas.
