@@ -1,5 +1,6 @@
 import { FormValidator } from "../components/FormValidator";
 import { defaultFormConfig } from "../utils/constants";
+import { UserInfo } from "../components/UserInfo";
 document.addEventListener("DOMContentLoaded", () => {
     const initialCards = [
         {
@@ -39,6 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const nameInput = document.querySelector(".popup__input_type_name");
     const descriptionInput = document.querySelector(".popup__input_type_description");
     const editForm = document.querySelector("#edit-profile-form");
+    const userInfo = new UserInfo({
+        nameSelector: ".profile__title",
+        jobSelector: ".profile__description",
+    });
     function openModal(modal) {
         modal.classList.add("popup_is-opened");
         document.addEventListener("keydown", handleEscClose);
@@ -48,8 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.removeEventListener("keydown", handleEscClose);
     }
     function fillProfileForm() {
-        nameInput.value = profileTitle.textContent;
-        descriptionInput.value = profileDescription.textContent;
+        const userData = userInfo.getUserInfo();
+        nameInput.value = userData.name;
+        descriptionInput.value = userData.job;
     }
     function handleOpenEditModal() {
         fillProfileForm();
@@ -57,8 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     function handleProfileFormSubmit(evt) {
         evt.preventDefault();
-        profileTitle.textContent = nameInput.value;
-        profileDescription.textContent = descriptionInput.value;
+        userInfo.setUserInfo({
+            name: nameInput.value,
+            job: descriptionInput.value,
+        });
         closeModal(editPopup);
     }
     editButton.addEventListener("click", handleOpenEditModal);
@@ -97,7 +105,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     newCardForm.addEventListener("submit", handleCardFormSubmit);
     function handleLikeButton(evt) {
-        evt.target.classList.toggle("card__like-button_active");
+        const button = evt.target;
+        button.classList.toggle("card__like-button_active");
     }
     function handleImageClick(data) {
         popupImage.src = data.link;
@@ -106,11 +115,14 @@ document.addEventListener("DOMContentLoaded", () => {
         openModal(imagePopup);
     }
     function handleDeleteCard(evt) {
-        const card = evt.target.closest(".card");
+        const button = evt.target;
+        const card = button.closest(".card");
         card.remove();
     }
     function getCardElement(data) {
-        const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+        const cardElement = cardTemplate
+            .querySelector(".card")
+            .cloneNode(true);
         const image = cardElement.querySelector(".card__image");
         const title = cardElement.querySelector(".card__title");
         const likeButton = cardElement.querySelector(".card__like-button");
@@ -149,8 +161,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     function handleOverlayClick(evt) {
-        if (evt.target.classList.contains("popup")) {
-            closeModal(evt.target);
+        const popup = evt.target;
+        if (popup.classList.contains("popup")) {
+            closeModal(popup);
         }
     }
     const addForm = document.querySelector("#new-card-form");
