@@ -1,6 +1,6 @@
-import { FormValidator } from "../components/FormValidator";
-import { defaultFormConfig } from "../utils/constants";
-import { UserInfo } from "../components/UserInfo";
+import { FormValidator } from "../components/FormValidator.js";
+import { UserInfo } from "../components/UserInfo.js";
+import { defaultFormConfig } from "../utils/constants.js";
 document.addEventListener("DOMContentLoaded", () => {
     const initialCards = [
         {

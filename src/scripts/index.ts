@@ -1,8 +1,8 @@
-import { FormValidator } from "../components/FormValidator";
-import { defaultFormConfig } from "../utils/constants";
-import { Section } from "../components/Section";
-import { Card, CardData } from "../components/Card";
-import { UserInfo } from "../components/UserInfo";
+import { FormValidator } from "../components/FormValidator.js";
+import { Section } from "../components/Section.js";
+import { Card, CardData } from "../components/Card.js";
+import { UserInfo } from "../components/UserInfo.js";
+import { defaultFormConfig } from "../utils/constants.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const initialCards = [
